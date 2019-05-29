@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+johnny = Curator.find_or_create_by(name: "Johnny Cash", document: "555555555", birthday: "26-2-1932".to_date)
+sid = Curator.find_or_create_by(name: "Sid Vicious", document: "555555555", birthday: "10-5-1957".to_date)
+axl = Curator.find_or_create_by(name: "Axl Rose", document: "555555555", birthday: "6-2-1962".to_date)
+joey = Curator.find_or_create_by(name: "Joey Ramone", document: "555555555", birthday: "19-5-1951".to_date)
+bruce = Curator.find_or_create_by(name: "Bruce Dickinson", document: "555555555", birthday: "7-8-1958".to_date)
+kurt = Curator.find_or_create_by(name: "Kurt Cobain", document: "555555555", birthday: "20-2-1967".to_date)
+elvis = Curator.find_or_create_by(name: "Elvis Presley", document: "555555555", birthday: "17-8-2008".to_date)
+
+Animal.find_or_create_by(name: "Pé de Pano", monthly_cost: 199.99, kind:	"Cavalo", curator: johnny)
+Animal.find_or_create_by(name: "Rex", monthly_cost: 99.99, kind: "Cachorro", curator: sid)
+Animal.find_or_create_by(name: "Ajudante do Papai Noel", monthly_cost:	99.99, kind: "Cachorro", curator: axl)
+Animal.find_or_create_by(name: "Rex", monthly_cost: 103.99, kind: "Papagaio", curator: joey)
+Animal.find_or_create_by(name: "Flora", monthly_cost: 103.99, kind: "Lhama", curator: bruce)
+Animal.find_or_create_by(name: "Dino", monthly_cost: 177.99, kind:	"Iguana", curator: kurt)
+Animal.find_or_create_by(name: "Lassie", monthly_cost: 407.99, kind:	"Ornitorrinco", curator: elvis)

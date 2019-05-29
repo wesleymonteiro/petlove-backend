@@ -4,6 +4,7 @@ class CreateAnimals < ActiveRecord::Migration[5.1]
       t.string :name
       t.float :monthly_cost
       t.string :kind
+      t.integer :curator_id
 
       t.timestamps
     end
