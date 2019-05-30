@@ -8,5 +8,5 @@ en:
         notice: '%{resource_name} foi atualizado com sucesso.'
         # alert: '%{resource_name} could not be updated.'
       destroy:
-        notice: '%{resource_name} foi destruido com sucesso.'
-        alert: '%{resource_name} não pôde ser destruído.'
+        notice: '%{resource_name} foi excluído com sucesso.'
+        alert: '%{resource_name} não pôde ser excluído.'
