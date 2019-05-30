@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   def index
-    dogs = Animal.where(kind: "Cachorro") 
+    dogs = Animal.where(kind: "Cachorro")
     @dogs_monthly_cost_average = dogs.pluck(:monthly_cost).instance_eval { reduce(:+) / size.to_f }
     @dogs_size = dogs.size
     @dogs_names = dogs.pluck(:name)

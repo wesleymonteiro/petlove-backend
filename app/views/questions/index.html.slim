@@ -10,7 +10,7 @@ h2 Questões
   .page-header
     h4 Quantos cachorros existem no sistema?
   div style="margin: 5px 0"
-    | Query: Animal.size
+    | Query: Animal.where(kind: "Cachorro").size
   p = "Resposta: #{@dogs_size}"
   
   .page-header

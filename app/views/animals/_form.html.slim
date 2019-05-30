@@ -1,0 +1,16 @@
+.page-header
+  h3 Dados do Animal
+
+.col-md-4
+  = simple_form_for @animal do |f|
+    = f.input :name, label: "Nome", input_html: { style: "width: 100%" }
+    = f.input :kind, label: "Tipo", input_html: { style: "width: 100%" }
+    = f.input :monthly_cost, label: "Custo Mensal", input_html: { style: "width: 100%" }
+    
+    = f.association :curator, label: "Tutor", prompt: "Selecione", selected: @animal.curator.try(:id), input_html: { style: "width: 100%" }
+
+    =<> submit_tag "Enviar", class: "button btn btn-primary",
+                                    data: { disable_with: "Enviando" }
+    =<> link_to "Cancelar", :back, class: "btn btn-default"
+  
+  

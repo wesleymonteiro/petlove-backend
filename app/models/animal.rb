@@ -4,14 +4,14 @@ class Animal < ApplicationRecord
   validates :name, :kind, :curator, :monthly_cost, presence: true
   validate :is_curator_18_years_old?, if: -> { kind == "Andorinha" }
   validate :curator_name_starts_with_a?, if: -> { kind == "Gato" }
-  validate :curator_monthly_costs_higher_than_1000?
+  validate :curator_monthly_costs_higher_than_1000?, on: :create
 
-  before_save :camelcase_names
+  before_create :camelcase_names
 
   private
   def camelcase_names
-    name = name.camelcase
-    kind = kind.camelcase
+    self.name = name.camelcase
+    self.kind = kind.camelcase
   end
 
   def is_curator_18_years_old?

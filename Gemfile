@@ -34,6 +34,7 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'mini_racer'
+gem 'responders'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

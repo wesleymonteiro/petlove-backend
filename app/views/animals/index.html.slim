@@ -1,0 +1,25 @@
+.page-header
+  h3 Animais
+
+= link_to "Adicionar Animal", new_animal_path, class: "btn btn-success"
+
+.col-md-12
+  .table-responsive
+    table.table.table-striped
+      thead
+        tr
+          th Nome
+          th Tipo
+          th Custo Mensal
+          th Tutor
+          th
+      tbody
+        - @animals.each do |animal|
+          tr
+            td = animal.name
+            td = animal.kind
+            td = "R$ #{"%.2f" % animal.monthly_cost}"
+            td = animal.curator.name
+            td
+              =<> link_to "editar", edit_animal_path(animal.id), class: "btn btn-sm btn-default"
+              =<> link_to "excluir", animal_path(animal.id), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Tem certeza?" }
