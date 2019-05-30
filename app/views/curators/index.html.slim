@@ -1,0 +1,23 @@
+.page-header
+  h3 Animais
+
+= link_to "Adicionar Tutor", new_curator_path, class: "btn btn-success"
+
+.col-md-12
+  .table-responsive
+    table.table.table-striped
+      thead
+        tr
+          th Nome
+          th Documento
+          th Data de Nascimento
+          th
+      tbody
+        - @curators.each do |curator|
+          tr
+            td = curator.name
+            td = curator.document
+            td = curator.birthday.strftime("%d/%m/%Y")
+            td
+              =<> link_to "editar", edit_curator_path(curator.id), class: "btn btn-sm btn-default"
+              =<> link_to "excluir", curator_path(curator.id), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: "Tem certeza?" }

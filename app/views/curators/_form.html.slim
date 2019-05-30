@@ -1,0 +1,15 @@
+.page-header
+  h3 Dados do Tutor
+
+.col-md-4
+  = simple_form_for @curator do |f|
+    = f.input :name, label: "Nome", input_html: { style: "width: 100%" }
+    = f.input :document, label: "Documento", input_html: { style: "width: 100%" }
+    = f.input :birthday, label: "Data de Nascimento", input_html: { style: "width: 100%" }
+    
+    hr
+    =<> submit_tag "Enviar", class: "button btn btn-primary",
+                                    data: { disable_with: "Enviando" }
+    =<> link_to "Cancelar", :back, class: "btn btn-default"
+  
+  

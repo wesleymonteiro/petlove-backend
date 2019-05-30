@@ -6,6 +6,6 @@ class Curator < ApplicationRecord
 
   private
   def camelcase_name
-    name = name.camelcase
+    self.name = name.camelcase
   end
 end

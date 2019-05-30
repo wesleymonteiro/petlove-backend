@@ -9,6 +9,7 @@
     
     = f.association :curator, label: "Tutor", prompt: "Selecione", selected: @animal.curator.try(:id), input_html: { style: "width: 100%" }
 
+    hr
     =<> submit_tag "Enviar", class: "button btn btn-primary",
                                     data: { disable_with: "Enviando" }
     =<> link_to "Cancelar", :back, class: "btn btn-default"

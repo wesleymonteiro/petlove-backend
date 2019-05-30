@@ -6,7 +6,7 @@ class Animal < ApplicationRecord
   validate :curator_name_starts_with_a?, if: -> { kind == "Gato" }
   validate :curator_monthly_costs_higher_than_1000?, on: :create
 
-  before_create :camelcase_names
+  before_save :camelcase_names
 
   private
   def camelcase_names
