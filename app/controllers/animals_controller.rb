@@ -9,8 +9,12 @@ class AnimalsController < ApplicationController
 
   def create
     animal = Animal.new(animal_params)
-    animal.save
-    respond_with animal, location: animals_path
+    if animal.save
+      respond_with animal, location: animals_path
+    else
+      flash[:alert] = "Não foi possível criar o animal: #{animal.errors.full_messages}"
+      redirect_to new_animal_path
+    end
   end
 
   def edit
