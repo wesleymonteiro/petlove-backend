@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    not_found: 'Registro não encontrado.'
+
+    models:
+      animal: 'Animal'
+      curator: 'Tutor'
+
+    errors:
+      models:
+        animal:
+          attributes:
+            curator:
+              invalid_age_for_kind: 'Idade inválida para esta espécie'
+              invalid_name_for_kind: 'Nome inválido para esta espécie'
+              high_monthly_cost: 'Custo mensal já está superior a R$ 1000'
+        
