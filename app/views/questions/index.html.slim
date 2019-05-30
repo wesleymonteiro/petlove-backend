@@ -1,0 +1,33 @@
+h2 Questões
+
+.col-md-12
+  .page-header
+    h4 Qual é o custo médio dos animais do tipo cachorro?
+  div style="margin: 5px 0"
+    | Query: Animal.where(kind: "Cachorro").pluck(:monthly_cost).instance_eval { reduce(:+) / size.to_f }
+  p = "Resposta: R$ #{"%.2f" % @dogs_monthly_cost_average}"
+ 
+  .page-header
+    h4 Quantos cachorros existem no sistema?
+  div style="margin: 5px 0"
+    | Query: Animal.size
+  p = "Resposta: #{@dogs_size}"
+  
+  .page-header
+    h4 Qual o nome dos donos dos cachorros (Array de nomes)
+  div style="margin: 5px 0"
+    | Query: Animal.where(kind: "Cachorro").pluck(:name)
+  p = "Resposta: #{@dogs_names}"
+  
+  .page-header
+    h4 Retorne as pessoas ordenando pelo custo que elas tem com os animais (Maior para menor)
+  div style="margin: 5px 0"
+    | Query: Curator.joins(:animals).select('curators.*, sum(animals.monthly_cost) as total_cost').group("curators.id").reorder("total_cost desc")
+  p = "Resposta: #{@reordened_curators.to_a.pluck(:name)}"
+  
+  .page-header
+    h4 Levando em consideração o custo mensal, qual será o custo de 3 meses de cada pessoa?
+  div style="margin: 5px 0"
+    | Query: Curator.joins(:animals).select('curators.*, sum(animals.monthly_cost) * 3 as future_cost').group("curators.id")
+  p = "Resposta: #{@three_months_costs}"
+  
